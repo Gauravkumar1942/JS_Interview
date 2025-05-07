@@ -807,4 +807,16 @@
 
 
 
+(function(){
+    let i=1;
 
+    function count(){
+      
+        console.log(i++);
+        
+    }
+    count();
+    count();
+    count();
+  
+})()
