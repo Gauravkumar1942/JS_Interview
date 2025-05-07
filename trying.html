@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar Example</title>
+    <style>
+        /* Progress Bar Container */
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            height: 20px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: blue;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 20px;
+            transition: width 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="startProgress()">Start Progress</button>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">0%</div>
+    </div>
+
+    <script>
+        function startProgress() {
+            let progress = 0;
+            const progressBar = document.getElementById("progress-bar");
+
+            const interval = setInterval(() => {
+                if (progress >= 100) {
+                    clearInterval(interval);
+                } else {
+                    progress += 10; // Increase by 10%
+                    progressBar.style.width = progress + "%";
+                    progressBar.textContent = progress + "%";
+                }
+            }, 500); // Update every 500ms
+        }
+    </script>
+
+</body>
+</html>
