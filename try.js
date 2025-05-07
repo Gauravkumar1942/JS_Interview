@@ -779,26 +779,26 @@
 
 // implement Chunks for ex const arr = [1,2,3,4,5] ,const size = 2 then the o/p has to be [[1,2], [3,4], [5]]
 
-const arr = [1,2,3,4,5];
-let outerArr = [];
-let innerArr = [];
-const size  = 2;
-let m = 1;
+// const arr = [1,2,3,4,5];
+// let outerArr = [];
+// let innerArr = [];
+// const size  = 2;
+// let m = 1;
 
-for (let index = 0; index < arr.length; index++) {
-    if(index < size*m){
-        innerArr.push(arr[index])
-    }
-    else{
-        index--;
-        outerArr.push(innerArr);
-        innerArr = [];
-         m++;
-    }
-}
-outerArr.push(innerArr);
+// for (let index = 0; index < arr.length; index++) {
+//     if(index < size*m){
+//         innerArr.push(arr[index])
+//     }
+//     else{
+//         index--;
+//         outerArr.push(innerArr);
+//         innerArr = [];
+//          m++;
+//     }
+// }
+// outerArr.push(innerArr);
 
-console.log(outerArr);
+// console.log(outerArr);
 
 
 
