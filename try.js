@@ -805,7 +805,8 @@
 
 
 
-
+// implement a count fucntion that when called for three times it returns or logs 1 2 3 respectively 
+// as shown in the code below 
 
 (function(){
     let i=1;
