@@ -808,16 +808,103 @@
 // implement a count fucntion that when called for three times it returns or logs 1 2 3 respectively 
 // as shown in the code below 
 
-(function(){
-    let i=1;
+// (function(){
+//     let i=1;
 
-    function count(){
+//     function count(){
       
-        console.log(i++);
+//         console.log(i++);
         
-    }
-    count();
-    count();
-    count();
+//     }
+//     count();
+//     count();
+//     count();
   
-})()
+// })();
+
+// implement the same chunks , but this time after say calling for 3 times when users does count.reset(), and then when he/she again calls the count func it should return 0 and not 4 becoz whne called for 3 times the counter would have been 3 but now when we reset the count the counter goes to 0 and after that whne we call it hs tobe 1 2 3 and so on 
+
+
+// let count = (function() {
+//                 let counter  = 0; 
+//                  function inner(){
+//                     console.log(counter++);
+                    
+//                 };
+                
+//                  inner.reset = function() {
+//                       counter = 0;
+//                 };
+
+               
+//                 return inner;
+
+//                         })();
+
+// count();
+// count();
+// count();
+// count.reset();
+// count();
+// count();
+// count();
+// count();
+
+
+
+
+
+
+
+
+console.log(typeof undefined);
+console.log(typeof 42);
+console.log(typeof null);
+console.log(typeof NaN);          // super tricky , surprisingly -> Not a Number(NaN) is actaully a Number. Surprised !!?? Welcome to JavaScript
+console.log(typeof Symbol('id'));  
+console.log(typeof []);
+console.log(typeof {});
+console.log(typeof function() {});   // returns function as answer but remember , fucntion is also an object somwehwere down the line 
+console.log(typeof new Date());
+console.log(typeof Math);
+console.log(typeof Infinity);  // pay attention
+console.log(typeof /abc/);   // remember this, this looks regex but this does not return regex , REGEX ARE OBJECT IN JS
+console.log(typeof (() => {}));
+console.log(typeof arguments);     // Read this 5 times 
+
+console.log(typeof parseInt);
+console.log(typeof parseFloat);
+console.log(typeof async function() {});   // read the ans for this for 5 times 
+console.log(typeof new Promise(() => {}));
+
+console.log(typeof 0n);    // tricky and unusual
+
+console.log(typeof new Set());
+console.log(typeof new Map());
+
+
+
+
+       
+console.log(typeof undefined === typeof null);   // Important 
+
+console.log(typeof function*() {});    //tricky , be aware of what answer does AI models like ChatGPT gives and what answer ur VSCode gives
+console.log(typeof new Error());
+console.log(typeof new RegExp('abc'));
+console.log(typeof 3.14)
+console.log(typeof (() => {}).prototype);    // super tricky , initially i thought i will give object beacuse the () => {} is fucntion and prototype of fucntion would be an obj, but no i was wrong . The ans is 'undefined';
+
+console.log(typeof 1+'1');   // slightly tricky . Typeof 1 is processed first then the '1'. so it became number + '1' = 'number1' and not typeof '11' which would have been string in tht case but it is not .
+console.log(typeof [1,2] === typeof { a: 1});      // be aware of the answer from chatGPT they can be some times wrong , use the vscode or any other coding software to verify the answers 
+
+console.log(String(1)); // String("anything") is better/safer  than .toString()
+
+
+
+
+
+
+
+
+
+
