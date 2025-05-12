@@ -1175,20 +1175,20 @@
 
 
 
-const obj = {
-    name: "Gaurav Kumar",
-    class: "SDE2",
-    CGPA: 9.3,
-    company: "Google",
-    petName: "Doggy",           // we have two petName prop in the object obj, but when we print the value of petName it will return the last one that is "Doggy" and not "Tommy" because the last one overwrites the first one
-    __proto__:{                      // manually adding a prototype to the object obj
-        petName: "Tommy",
-        petBDay: 2020
-    }
-};
-console.log(obj.petName);
-console.log(obj.company);
-console.log(obj.petBDay);
+// const obj = {
+//     name: "Gaurav Kumar",
+//     class: "SDE2",
+//     CGPA: 9.3,
+//     company: "Google",
+//     petName: "Doggy",           // we have two petName prop in the object obj, but when we print the value of petName it will return the last one that is "Doggy" and not "Tommy" because the last one overwrites the first one
+//     __proto__:{                      // manually adding a prototype to the object obj
+//         petName: "Tommy",
+//         petBDay: 2020
+//     }
+// };
+// console.log(obj.petName);
+// console.log(obj.company);
+// console.log(obj.petBDay);
 
 
 
@@ -1212,3 +1212,23 @@ console.log(obj.petBDay);
 
 
 
+// // freezing one key of the Object obj
+// const obj = {
+//     name: " Gaurav",
+//     class: "CSE"
+
+// };
+
+// // now i want to freeze the name so that no on e change the value of name prop
+// Object.defineProperty(obj, 'name', {
+//     value: "Gaurav",
+//     writable: false,
+//     configurable: false,
+//     enumerable: false
+// });
+// obj.name = " Anand Kumar";        // trying to change the val of name prop in the Object Obj 
+// console.log(obj.name);          // returns Gaurav n not Anand
+// // lets try changing the value of class
+
+// obj.class = "EEE";
+// console.log(obj.class);         // returns EEE , that means we can change the class prop but not the val of name prop
