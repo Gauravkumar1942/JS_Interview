@@ -1232,3 +1232,31 @@
 
 // obj.class = "EEE";
 // console.log(obj.class);         // returns EEE , that means we can change the class prop but not the val of name prop
+
+
+
+
+
+
+
+
+
+
+//hiding data in an class / object /function 
+
+// class Wallet {
+//   #balance = 0; // Truly private (cannot be accessed outside)
+
+//   deposit(amount) {
+//     this.#balance += amount;
+//   }
+
+//   getBalance() {
+//     return this.#balance;
+//   }
+// }
+
+// const myWallet = new Wallet();
+// myWallet.deposit(100);
+// console.log(myWallet.getBalance()); // 100
+// console.log(myWallet.#balance); //  SyntaxError: Private field must be declared in class
