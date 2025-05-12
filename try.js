@@ -857,54 +857,358 @@
 
 
 
-console.log(typeof undefined);
-console.log(typeof 42);
-console.log(typeof null);
-console.log(typeof NaN);          // super tricky , surprisingly -> Not a Number(NaN) is actaully a Number. Surprised !!?? Welcome to JavaScript
-console.log(typeof Symbol('id'));  
-console.log(typeof []);
-console.log(typeof {});
-console.log(typeof function() {});   // returns function as answer but remember , fucntion is also an object somwehwere down the line 
-console.log(typeof new Date());
-console.log(typeof Math);
-console.log(typeof Infinity);  // pay attention
-console.log(typeof /abc/);   // remember this, this looks regex but this does not return regex , REGEX ARE OBJECT IN JS
-console.log(typeof (() => {}));
-console.log(typeof arguments);     // Read this 5 times 
 
-console.log(typeof parseInt);
-console.log(typeof parseFloat);
-console.log(typeof async function() {});   // read the ans for this for 5 times 
-console.log(typeof new Promise(() => {}));
 
-console.log(typeof 0n);    // tricky and unusual
 
-console.log(typeof new Set());
-console.log(typeof new Map());
+
+
+
+
+// console.log(typeof undefined);
+// console.log(typeof 42);
+// console.log(typeof null);
+// console.log(typeof NaN);          // super tricky , surprisingly -> Not a Number(NaN) is actaully a Number. Surprised !!?? Welcome to JavaScript
+// console.log(typeof Symbol('id'));  
+// console.log(typeof []);
+// console.log(typeof {});
+// console.log(typeof function() {});   // returns function as answer but remember , fucntion is also an object somwehwere down the line 
+// console.log(typeof new Date());
+// console.log(typeof Math);
+// console.log(typeof Infinity);  // pay attention
+// console.log(typeof /abc/);   // remember this, this looks regex but this does not return regex , REGEX ARE OBJECT IN JS
+// console.log(typeof (() => {}));
+// console.log(typeof arguments);     // Read this 5 times 
+
+// console.log(typeof parseInt);
+// console.log(typeof parseFloat);
+// console.log(typeof async function() {});   // read the ans for this for 5 times 
+// console.log(typeof new Promise(() => {}));
+
+// console.log(typeof 0n);    // tricky and unusual
+
+// console.log(typeof new Set());
+// console.log(typeof new Map());
 
 
 
 
        
-console.log(typeof undefined === typeof null);   // Important 
+// console.log(typeof undefined === typeof null);   // Important 
 
-console.log(typeof function*() {});    //tricky , be aware of what answer does AI models like ChatGPT gives and what answer ur VSCode gives
-console.log(typeof new Error());
-console.log(typeof new RegExp('abc'));
-console.log(typeof 3.14)
-console.log(typeof (() => {}).prototype);    // super tricky , initially i thought i will give object beacuse the () => {} is fucntion and prototype of fucntion would be an obj, but no i was wrong . The ans is 'undefined';
+// console.log(typeof function*() {});    //tricky , be aware of what answer does AI models like ChatGPT gives and what answer ur VSCode gives
+// console.log(typeof new Error());
+// console.log(typeof new RegExp('abc'));
+// console.log(typeof 3.14)
+// console.log(typeof (() => {}).prototype);    // super tricky , initially i thought i will give object beacuse the () => {} is fucntion and prototype of fucntion would be an obj, but no i was wrong . The ans is 'undefined';
 
-console.log(typeof 1+'1');   // slightly tricky . Typeof 1 is processed first then the '1'. so it became number + '1' = 'number1' and not typeof '11' which would have been string in tht case but it is not .
-console.log(typeof [1,2] === typeof { a: 1});      // be aware of the answer from chatGPT they can be some times wrong , use the vscode or any other coding software to verify the answers 
+// console.log(typeof 1+'1');   // slightly tricky . Typeof 1 is processed first then the '1'. so it became number + '1' = 'number1' and not typeof '11' which would have been string in tht case but it is not .
+// console.log(typeof [1,2] === typeof { a: 1});      // be aware of the answer from chatGPT they can be some times wrong , use the vscode or any other coding software to verify the answers 
 
-console.log(String(1)); // String("anything") is better/safer  than .toString()
-
-
-
+// console.log(String(1)); // String("anything") is better/safer  than .toString()
+// console.log(typeof new Function());   // remember this , this is different than the new Set(), new Map(), new Date(), etc
 
 
+// //If there is any undeclared variable , n if u try to find its type of then it will return undefined 
+
+// console.log(typeof g);  // typeof undeclared_Variable  = 'undefined'
 
 
+
+
+// regarding variable type let , const and class, when they are not declared then it will return undefined but suppose they are defined in the bottm of the code and we are trying to finnd the typeof in above lines , then it will throw ReferenceError beacuse while HOISTING the let , const and class are in Temporal Dead Zone (TDZ)and hence it will give error
+// console.log(typeof g);
+// console.log(typeof m);
+// console.log(typeof Anna);
+
+// let g = 32;
+// const m = "Gaurav Kumar";
+// class Anna {};
+
+
+// ***             FUNCTIONS ARE CALLABLE OBJECTS IN JS
+
+// console.log(typeof typeof (function(){}).__proto__); 
+// console.log(typeof (() => {}) === typeof class {});  // classes are nothing but syntactic sugar name for function , more presicely constructor function 
+
+// console.log(typeof (function*() {})()  );   // read ten times 
+//function*() {} defines a generator function.
+
+// When you call a generator function (with ()), it returns a generator object.
+
+// typeof on any object (including generator objects) returns "object".
+
+
+
+// ??          VERY IMPORTANT AND TRICKY
+
+
+// const instance = new (class { constructor() { return {}; } });
+// console.log(instance instanceof class {}); // false (proof it's not a class instance)
+// console.log(instance); // {} (plain object)
+// console.log(typeof instance); // object (plain object)
+// console.log(typeof instance.constructor); // function (constructor function)
+
+
+// console.log(typeof (class {})); // function (class is a function)
+ // function (class is a function)
+
+
+
+
+
+
+
+// ***********      Object          *************
+
+// const obj  = new Object();         // object creation using new keyword 
+// obj.value = 8055;
+// console.log(obj.value);
+
+
+
+// const obj = Object();                 // object creation without new keyword 
+// obj.name = 'Gaurav';
+// console.log(obj.name);
+
+
+
+
+// const obj = {                            // direct object creation 
+//     value : 8055
+// }
+// console.log(obj.value);
+
+
+
+// const o = new Object(null);
+// const q  = new Object(undefined)
+
+// console.log(o, q);
+
+
+
+
+
+
+// const target = { a: 1 };
+// const source = { b: 2, c: 3 };
+// const result = Object.assign(target, source);   // it is short of like adding target obj and source obj or say adding obj1 and obj2 
+
+// console.log(result); // { a: 1, b: 2, c: 3 }
+// console.log(target); // { a: 1, b: 2, c: 3 } (target is modified)
+
+
+
+
+
+// const target = { a: 1 };
+// const source = { a: 2, c: 3 };
+// const result = Object.assign(target, source);   // it is short of like adding target obj and source obj or say adding obj1 and obj2 
+
+// console.log(result); 
+// console.log(target);  // also the target obj is modified 
+// if there is any overrlapping key then then key of the source object is considered and no the target object, as u can see in the o/p, the value of a is not 1 but 2
+
+
+
+
+
+// const person = {
+//     greet() {
+//       console.log(`Hello, my name is ${this.name}`);
+//     }
+//   };
+  
+//   const john = Object.create(person);
+//   john.name = 'John';
+//   john.greet(); // Hello, my name is John
+//   console.log(person);
+//   console.log(person.greet());
+
+//   console.log(john);
+//   console.log(john.greet());             // tricky ,,,, read it carefully !!
+
+
+
+// const obj = {};
+
+// Object.defineProperty(obj, 'property1', {
+//   value: 42,
+//   writable: false,
+//   enumerable: true
+// });
+
+// console.log(obj.property1); // 42
+// obj.property1 = 100; // Throws in strict mode, fails silently otherwise
+// console.log(obj.property1); // 42 (value didn't change)
+  
+  
+// const obj = {};
+// Object.defineProperty(obj, 'property', {
+//     value: 24,
+//     writable: true,                // if writable is true then u can change the value of the value : 24, as shown in line 1055, but if it is false then u cant do it 
+//     enumerable: true
+// });
+
+// console.log(obj.property);
+
+// obj.property = 99;
+// console.log(obj.property);
+
+
+
+
+
+// const obj = {};
+
+// Object.defineProperties(obj, {       // Object.defineProperties(<object name>, { {}, {}, {}, ...............})
+//   property1: {
+//     value: true,
+//     writable: true
+//   },
+//   property2: {
+//     value: 'Hello',
+//     writable: false
+//   }
+// });
+
+// console.log(obj.property1); // true
+// console.log(obj.property2); // 'Hello'
+// obj.property2  = "GK";
+// console.log(obj.property2); // return Hello, becuase the wwritable fro property2 is false that means u can not change the value of the property2 
+
+
+
+
+// const obj = { name: 'John' };
+// const descriptor = Object.getOwnPropertyDescriptor(obj, 'name'); // gives the description about the value of key "name", but lets change the writable property to false and check if we can the value of the key 'name';
+
+
+// console.log(descriptor);
+
+// Object.defineProperty(obj, 'name', {
+//     value: 'Gaurav',
+//     writable: false,                  // we changed the writable property of the NAME to false now we cannot change the value of name;
+
+// });
+
+// console.log(obj.name);
+// obj.name = "Anand";
+// console.log(obj.name);
+
+
+
+
+// const obj = {
+//     name: "Gaurav Kumar",
+//     class: "SDE2"
+// }
+// console.log(Object.getOwnPropertyDescriptors(obj)); // returns the value and also the desciption of the value 
+                                                      // as the above example we can change the description using the Object.defineProperty()
+
+
+
+
+
+// const obj = {
+//     name: "Gaurav kumar",
+//     degree: 'CSS',
+//     CGPA: 9.3,
+//     company: "Google"
+// }
+
+// // to get all the keys of the object obj 
+// console.log(Object.keys(obj));
+
+// // to get all the values of the object obj
+// console.log(Object.values(obj));
+// Object.keys(obj).map(item => console.log(item));
+// Object.values(obj).map(item => console.log(item));
+
+
+
+
+
+// const obj = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+// };
+// console.log(Object.entries(obj));
+
+
+
+// prevent adding new properties to an object
+// const obj = {};
+// console.log(Object.isExtensible(obj));
+
+// Object.preventExtensions(obj);            // preventing extension of the object obj
+// obj.newProp = 'new value'; // This will not be added
+// console.log(obj.newProp); // undefined
+
+// console.log(Object.isExtensible(obj)); // false
+
+
+
+
+//seal the Object that is no adding to deleting new property 
+
+// const obj = { prop: 42 };
+// Object.seal(obj);
+// obj.prop = 33;
+// console.log(obj.prop); // 33
+// delete obj.prop; // Cannot delete when sealed
+// console.log(obj.prop); // 33
+
+
+
+
+// const obj = { prop: 42 };
+// Object.freeze(obj);
+// obj.prop = 33; // Cannot change when frozen
+// console.log(obj.prop); // 42
+// delete obj.prop; // Cannot delete when frozen
+// console.log(obj.prop); // 42
+// obj.newProp = 100; // Cannot add new properties when frozen
+// console.log(obj.newProp); // undefined
+
+
+
+
+const obj = {
+    name: "Gaurav Kumar",
+    class: "SDE2",
+    CGPA: 9.3,
+    company: "Google",
+    petName: "Doggy",           // we have two petName prop in the object obj, but when we print the value of petName it will return the last one that is "Doggy" and not "Tommy" because the last one overwrites the first one
+    __proto__:{                      // manually adding a prototype to the object obj
+        petName: "Tommy",
+        petBDay: 2020
+    }
+};
+console.log(obj.petName);
+console.log(obj.company);
+console.log(obj.petBDay);
+
+
+
+
+ // adding prototype to the object using methods in th e Object in JavaScript
+
+//  const obj  = {
+//     firstName: "Anna",
+//     lastName: "Karumanchi"
+//  };
+//  const newObject = {
+//     petName: "Tommy",
+//     petBDay: 2020
+//  };
+//  Object.setPrototypeOf(obj, newObject);
+//  console.log(obj.petName);
+//  console.log(obj.petBDay);
+//  console.log(obj.firstName);
+//  console.log(obj.lastName);
+ 
 
 
 
