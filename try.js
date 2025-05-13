@@ -1,6 +1,6 @@
 // const arr = [1,2,3,4,5,6,7,8,9,10,11];
-// console.log(arr.map(item => item * 10));
-// console.log(arr);
+// console.log(arr.map(item => item * 10));         // gives new array after operation . Does not chnage the original array 
+// console.log(arr);                    // original array is as it is 
 
 
 
@@ -13,19 +13,21 @@
 
 
 // console.log(parseInt(10 + 2));
-// 'use strict';
+// // 'use strict';               
+//    // no impact on the operation wheather we use "use strict" or not 
 // console.log(parseInt('M7F'));
 // console.log(parseInt('7MF'));
 
 
 // *************************
-// ########### Super Complicated, trying playing with the iside values of a and b, and use Strict and also the data type of the inner a and  b ,  data types like const , var, let 
+// ########### Super Complicated, trying playing with the inside values of a and b, and use Strict and also the data type of the inner a and  b ,  data types like const , var, let 
 // {
 //     function abc(a,b){
-//         'use strict';
-//           a= 11;
-//           b= 12;
-//         return arguments[0] + arguments[1];
+//         // 'use strict';                     
+//         var  a= 11;
+//         var  b= 12;
+//         return arguments[0] + arguments[1];   // while using "use strict" , we can't change the param variables value , they remain what we have sent from while calling the function , but while we don't use the 'use strict', we can chnage the value of arguements inside the fucntion as done in this example
+
 //         console.log(a+b);
 //     }
 // }
@@ -91,7 +93,7 @@
 
 // *************************
 // console.log([1,2,3,4,5].map(num => {
-//     if(num > 0) return ;
+//     if(num > 0) return ;               // [undefined * no.of. element]
 //     return num * 2;
 // }))
 
@@ -101,7 +103,7 @@
 
 //VERY IMPORTANT 
 
-// 'use strict';
+// 'use strict';                     // tricky 
 // {
 //     function abc(){
 //         console.log('Gaurav Kumar');
@@ -110,17 +112,17 @@
 //         }
 //         abc2();
 //     }
-    
+//                        // in this try putting abc(), while using "use strict" , then it wil work and not give Reference Error 
 // } 
-
 // abc();
 
 
-// try trying after removing ht use strict because it chnages the aswer and things can be super  confusing as well. 
 
-// Chnage the scopes of the function calls in variaous places and chce if u can call them or not . 
-// When called outside the other fucntion's scope does'nt calls the function and it says that the func is not defiend and thriws reference error
-// Bu t if it is called inside teh window scope , the n it can be called 
+// try after removing the use strict because it changes the answer and things can be super  confusing as well. 
+
+// Change the scopes of the function calls in variaous places and check if u can call them or not . 
+// When called outside the other fucntion's scope does'nt calls the function and it says that the func is not defiend and throws reference error
+// But if it is called inside the window scope , then it can be called 
 
 
 
@@ -130,7 +132,7 @@
 // console.log([1,2,3,4,5,6].some((n) => {n > 4})) // returns false
 
 
-// const nums  = [1,2  ,3,4,5,6];
+// const nums  = [1,2,3,4,5,6];
 // console.log(nums.splice(1,2));
 // console.log(nums);
 // splice modifies the array return after it has deleted some elements 
@@ -1260,3 +1262,40 @@
 // myWallet.deposit(100);
 // console.log(myWallet.getBalance()); // 100
 // console.log(myWallet.#balance); //  SyntaxError: Private field must be declared in class
+
+
+
+
+// const a = {};
+// const b = { key: 'b' };
+// const c = { key: 'c' };
+// a[b] = 123;
+// a[c] = 456;
+// console.log(a[b]);             // super tricky *******
+
+
+
+// diff bw for...in and Object.keys()
+
+
+// const parent = { a: 1 };
+// const child = Object.create(parent);
+// child.b = 2;
+// console.log(Object.keys(child)); // ['b']    ............only own property and not prop from prototype
+// for (let key in child) console.log(key); // 'b', 'a'                ......both props, from own as well as prototype
+
+
+
+// computed property name
+
+// const dynamicKey = 'email';
+// const user = {
+//   id: 1,
+//   [dynamicKey]: 'user@example.com',  // Computed key
+//   [`get${dynamicKey}`]() { return this[dynamicKey]; }
+// };
+// console.log(user.getemail()); // 'user@example.com'
+
+
+
+
