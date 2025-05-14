@@ -112,7 +112,7 @@
 //         }
 //         abc2();
 //     }
-//                        // in this try putting abc(), while using "use strict" , then it wil work and not give Reference Error 
+                       // in this try putting abc(), while using "use strict" , then it wil work and not give Reference Error 
 // } 
 // abc();
 
@@ -195,8 +195,8 @@
 
 // const arr = [1,2,3,4,5,6];
 // console.log(arr.find(a  => a > 2));
-// // find gives u one result not arrray of resultz ,
-// // where as the .filter gives all the elements that satisfy the condition
+// find gives u one result not arrray of resultz ,
+// where as the .filter gives all the elements that satisfy the condition
 
 
 
@@ -229,7 +229,7 @@
 
 
 
-// // async function res(){
+// async function res(){
 // const [,,,a, b] = [1,2,3,4,5,6];
 // console.log(a);
 
@@ -242,7 +242,7 @@
 // setTimeout(() => {
 //     console.log("B");
 // });
-// // by default the time is 0 sec, u can give it as 0 sec or u can leave as it is as well 
+// by default the time is 0 sec, u can give it as 0 sec or u can leave as it is as well 
 // ["C", "D"].forEach((x) => console.log(x));
 // console.log("E");
 
@@ -250,7 +250,7 @@
 
 
 
-// // This is the Input 
+// This is the Input 
 // const  obj = [
 //     {
 //         key: 'sample 1',
@@ -273,34 +273,34 @@
 //         data: 'Data5'
 //     }
 // ];
-// // The output has to be something like this 
+// The output has to be something like this 
 
 // const output = {
-//     // "sample 1" : [
-//     //     {
-//     //         key: 'sample 1',
-//     //         data: 'Data 1'
-//     //     },
-//     //     {
-//     //         key: 'sample 1',
-//     //         data: 'Data1'
-//     //     }
-//     // ],
-//     // "sample 2": [
-//     //     {
-//     //         key: 'sample 3',
-//     //         data: 'Data3'
-//     //     },
-//     //     {
-//     //         key: 'sample 3',
-//     //         data: 'Data3'
-//     //     }
-//     // ],
-//     // "sample 5": [{
+    // "sample 1" : [
+    //     {
+    //         key: 'sample 1',
+    //         data: 'Data 1'
+    //     },
+    //     {
+    //         key: 'sample 1',
+    //         data: 'Data1'
+    //     }
+    // ],
+    // "sample 2": [
+    //     {
+    //         key: 'sample 3',
+    //         data: 'Data3'
+    //     },
+    //     {
+    //         key: 'sample 3',
+    //         data: 'Data3'
+    //     }
+    // ],
+    // "sample 5": [{
 
-//     //     key: 'sample 5',
-//     //     data: 'Data5'
-//     // }]
+    //     key: 'sample 5',
+    //     data: 'Data5'
+    // }]
 
 
 // };
@@ -384,19 +384,19 @@
 // const animals = ["ant", "bison", "camel", "duck", "elephant"];
 
 // console.log(animals.slice(2));
-// // Expected output: Array ["camel", "duck", "elephant"]
+// Expected output: Array ["camel", "duck", "elephant"]
 
 // console.log(animals.slice(2, 4));
-// // Expected output: Array ["camel", "duck"]
+// Expected output: Array ["camel", "duck"]
 
 // console.log(animals.slice(1, 5));
-// // Expected output: Array ["bison", "camel", "duck", "elephant"]
+// Expected output: Array ["bison", "camel", "duck", "elephant"]
 
 // console.log(animals.slice(-2));
-// // Expected output: Array ["duck", "elephant"]
+// Expected output: Array ["duck", "elephant"]
 
 // console.log(animals.slice(2, -1));
-// // Expected output: Array ["camel", "duck"]
+// Expected output: Array ["camel", "duck"]
 
 // console.log(animals.slice());
 
@@ -425,11 +425,11 @@
 // const numbers = [1, 2, 3, 4, 5];
 // Object.defineProperty(numbers, "length", { writable: false });
 // numbers[5] = 6; // TypeError: Cannot assign to read only property 'length' of object '[object Array]'
-// numbers.push(5); // // TypeError: Cannot assign to read only property 'length' of object '[object Array]'
+// numbers.push(5); //  TypeError: Cannot assign to read only property 'length' of object '[object Array]'
 
 // const a= [1,2,3];
 // Object.defineProperty(a, 'length', {writable: false});
-// // by doing that, we can make the len of the array non writable that means we cant change the lenght of the array in the future by either manually chaning the lenght or by trying to push anything into teth array 
+// by doing that, we can make the len of the array non writable that means we cant change the lenght of the array in the future by either manually chaning the lenght or by trying to push anything into teth array 
 
 
 // Exponential Shortcut 
@@ -573,13 +573,13 @@
 // let obj = {};
 // function add(a,b)
 // {
-//     // make a hashtable , and store the arg[0] and arg[1] as key and value pair;
-//     // first check either hashtable.has(arg[0]), 
-//     // hs.get(arg[0]) - arg[0] == arg[1]
-//     // return hash.get(arg[0])
+    // make a hashtable , and store the arg[0] and arg[1] as key and value pair;
+    // first check either hashtable.has(arg[0]), 
+    // hs.get(arg[0]) - arg[0] == arg[1]
+    // return hash.get(arg[0])
 
-// //  for add(1,2)
-// // 1,3 => take 1 , find value that is 3 , then subtract value - key if this equals to second arguemnt / param then return the value of key name param 1 
+//  for add(1,2)
+// 1,3 => take 1 , find value that is 3 , then subtract value - key if this equals to second arguemnt / param then return the value of key name param 1 
 
 
 
@@ -596,6 +596,11 @@
  
 // }
 // console.log(add(0,4));
+
+
+
+
+
 
 
 // nullish coalescing (??)
@@ -824,7 +829,13 @@
   
 // })();
 
-// implement the same chunks , but this time after say calling for 3 times when users does count.reset(), and then when he/she again calls the count func it should return 0 and not 4 becoz whne called for 3 times the counter would have been 3 but now when we reset the count the counter goes to 0 and after that whne we call it hs tobe 1 2 3 and so on 
+
+
+
+
+
+
+// implement the same chunks , but this time after say calling for 3 times when users does count.reset(), and then when he/she again calls the count func it should return 0 and not 4 becoz when called for 3 times the counter would have been 3 but now when we reset the count the counter goes to 0 and after that when we call it has to be 1 2 3 and so on 
 
 
 // let count = (function() {
@@ -878,13 +889,13 @@
 // console.log(typeof Math);
 // console.log(typeof Infinity);  // pay attention
 // console.log(typeof /abc/);   // remember this, this looks regex but this does not return regex , REGEX ARE OBJECT IN JS
-// console.log(typeof (() => {}));
+// // console.log(typeof (() => {}));
 // console.log(typeof arguments);     // Read this 5 times 
 
 // console.log(typeof parseInt);
 // console.log(typeof parseFloat);
 // console.log(typeof async function() {});   // read the ans for this for 5 times 
-// console.log(typeof new Promise(() => {}));
+// console.log(typeof new Promise(() => {}));       // information: Promise is actually an Object in JS
 
 // console.log(typeof 0n);    // tricky and unusual
 
@@ -912,7 +923,7 @@
 
 // //If there is any undeclared variable , n if u try to find its type of then it will return undefined 
 
-// console.log(typeof g);  // typeof undeclared_Variable  = 'undefined'
+// console.log(typeof g);  // typeof undeclared_Variable  = 'undefined'  // **** important
 
 
 
@@ -929,7 +940,8 @@
 
 // ***             FUNCTIONS ARE CALLABLE OBJECTS IN JS
 
-// console.log(typeof typeof (function(){}).__proto__); 
+// console.log( typeof (function(){}).__proto__); 
+// console.log( typeof typeof (function(){}).__proto__); 
 // console.log(typeof (() => {}) === typeof class {});  // classes are nothing but syntactic sugar name for function , more presicely constructor function 
 
 // console.log(typeof (function*() {})()  );   // read ten times 
@@ -1077,16 +1089,18 @@
 // console.log(obj.property1); // true
 // console.log(obj.property2); // 'Hello'
 // obj.property2  = "GK";
-// console.log(obj.property2); // return Hello, becuase the wwritable fro property2 is false that means u can not change the value of the property2 
+// console.log(obj.property2); // return Hello, becuase the writable fro property2 is false that means u can not change the value of the property2 
 
 
 
 
 // const obj = { name: 'John' };
 // const descriptor = Object.getOwnPropertyDescriptor(obj, 'name'); // gives the description about the value of key "name", but lets change the writable property to false and check if we can the value of the key 'name';
-
-
 // console.log(descriptor);
+
+
+
+
 
 // Object.defineProperty(obj, 'name', {
 //     value: 'Gaurav',
@@ -1097,6 +1111,9 @@
 // console.log(obj.name);
 // obj.name = "Anand";
 // console.log(obj.name);
+
+
+
 
 
 
