@@ -1316,3 +1316,176 @@
 
 
 
+// ************* PROMISE IS AN OBJECT ************
+
+// const promis = new Promise((resolve, reject) => {
+//     setTimeout(() =>{
+//         reject();               // try chnaging it to reject(), then check what happens
+//     }, 2000)
+// });
+// promis.then(() => console.log('resolved')
+// ).catch(err => console.log('rejected  ', err??"It's not You, it's US !!")
+// );
+
+
+
+
+
+// what will happen when we have two things 1. A Promise and 2. a console.log , Which one will execute first ??
+// the console.log and then the Promise // ***** Remember This ************
+
+
+// const promiseA = new Promise((resolve, reject) => {
+//   resolve(777);
+// });
+// At this point, "promiseA" is already settled.
+// promiseA.then((val) => console.log("asynchronous logging has val:", val));
+// console.log("immediate logging");
+
+// produces output in this order:
+// immediate logging
+// asynchronous logging has val: 777
+
+
+
+
+
+
+
+//       **  Promise offers 4 static methods to facilitate Concurrency in JS
+// *   1. Promise.all()          
+// *   2. Promise.allSettled()
+// *   3. Promise.any()
+// *   4. Promise.race()
+
+
+//Promise.all()
+// **           Promise.all( takes array of promises ) and returns the new resolved Promise only and only when all the Promises resolve. if any of the Promises reject then it rejects and return the promises that got rejected 
+
+// const promise1 = new Promise((resolve, reject) => resolve(1));
+// const promise2 = new Promise((resolve, reject) => resolve(2));
+// const val = 42;
+// const promise3 = new Promise((resolve, reject ) => resolve("GK"));    // try writing reject("GK") then see what happens
+// const p4 = Promise.resolve(4);                                        // instead of .resolve(4) , try writing .reject(4)-- then see what happens
+
+// Promise.all([promise1, promise2, promise3, p4, val]).then(val => console.log(val)
+// ).catch(err => console.log(err)
+// );
+
+
+
+
+
+
+// const p1 = Promise.resolve(1);
+// const p2 = Promise.resolve(2);
+// const  res = Promise.all([p1,p2]);
+// console.log(res);                 // pending 
+
+// setTimeout(() => console.log(res)
+// , 0.00000000000000000000000000000000000000000000000000001);         // executes fine 
+//*****        weired analogy
+
+// if u directly try to consol the promise.all(), results then it is giving {pending}, but when u use the setTimeout even with 1 sec delay or 0.0000000000000000000000000000000000000001 sec dealy it is properly consoling the promise result and gives the proper result 
+//what does this mean and say about Promise
+// Promise is an asynchronous process and they don't immediately execute . But once u use the some delay technique they execute properly even though u have used so small delay ,,,,, no matter how small is ur delay , even it is so close to 0 then too it will be exeuted properly .
+
+
+
+
+// let us see which is fast Promise or SetTimeout
+
+// console.log(Promise.resolve("Promise Hai"));
+//  setTimeout(() => {
+//     console.log("timeOut");
+    
+// }, 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001);
+
+
+// Inference from above code 
+// if we run  a code that has Promise and setTimeout , then 
+// promise will run first and 
+// setTimeout will run after wards ,no matter how less is the delay time . 
+
+// IN QUEUEING IN JS  ->    PROMISES ARE FAVOURED MORE THAN SETTIMEOUT              
+// *********             But , when the promise.all has empty promises passed , then they are resolved or rejected immediately 
+
+
+
+
+
+
+
+
+
+// console.log(Promise.all([]));             // resolves immediately, and gives result of resolve/reject,  because the passes promises are empty. 
+
+
+
+
+// const p1 = Promise.resolve(1);
+// const p2 = Promise.resolve(2);
+// const res = Promise.all([p1,p2]);          // returns pending , because the passes iterable array is not empty. To resolve or reject use setTimeout
+// setTimeout(() => 
+//     {
+//         console.log(res);           // this approach is good , first get the promise.all() result in one variable then log that variable in setTimeout 
+
+        // console.log(Promise.all([p1,p2]));            // this runs immediately, hence it remains in pending state . dont do like this , better first get the Promise.all() value in other variable and then log that variable inside the setTimeout like we have done in code above
+
+        
+        
+//      } , 1000);              // should return resolve/reject
+
+
+
+
+
+//******** Promise.allSettled()      */
+
+// promise.allSettled(), return promise when all the passes promises are settled(either resolved or rejected ), it also gives the resolved value and the reason behind the rejection 
+
+// const p1  = Promise.resolve(100);
+// const p2 = new Promise((resolve, reject) =>{
+//     reject("Error !!");
+// });
+
+// const res = Promise.allSettled([p1,p2]);
+// res.then(value => console.log(value));
+
+
+// ************            Promise.any()      return the completion of promise if any one of the promises fullfilles other wise if all the promises rejects then it returns rejection 
+
+// const p1 = Promise.resolve(1);
+// const p2 = Promise.reject("Err");
+
+// const res  = Promise.any([p1,p2]);
+// res.then( value => console.log(value)    // atleast one of the Promises is resolving so it ends up resolving the promise , try writing p1 = promise.reject(1)  and then see what happens .
+// );
+
+
+
+
+// Promise.any() is like Array.prototype.some()
+// Promise.all() is like Array.prototype.every()
+
+
+
+
+//*       Promise.race()....... whatever the first promise does , it does the same thing 
+// if first promise is rejected then it rejects the whole promise n if the first promise is resolved then return the resolved promise
+
+// const p2 = Promise.reject("error");
+// const p1 = Promise.resolve(1)
+
+// const res = Promise.race([p1,p2]);             // Remember one thing, the rejection and resolving promises depends on the way we have mentioned the promises in the Promise.race([[  <here>  ]]), it does not depened on how u have declared them , it depend on how u and in what listing manner u have mentioned them in teh array of the Promise.any() .race()    .all(), etc 
+
+// res.then(value => console.log(value)
+// ).catch(err => console.log(err)
+// );
+
+
+
+
+// const res = Promise.race([]);            // an empty array(iterable) will always return <pending> state, it has to has one or more rejected or resolved Promise
+// console.log(res);
+// setTimeout(() => console.log(res), 0);
