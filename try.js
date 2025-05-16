@@ -1489,3 +1489,109 @@
 // const res = Promise.race([]);            // an empty array(iterable) will always return <pending> state, it has to has one or more rejected or resolved Promise
 // console.log(res);
 // setTimeout(() => console.log(res), 0);
+
+
+
+
+
+
+//  *************   Hoisting in JS
+
+// const x = 1 ;
+// {
+//     console.log(x);   //ReferenceError, becuase we are using the X variable even before it is initialised, but why does not use the x in the line no 1500, well because the const , let are scope {} variable; In the scope we have x =  2, the x = 1 is actually outside of the scope  
+//     const x  =  2;
+    
+// }
+
+
+
+
+// {
+//     var x  = 1;
+// }
+// console.log(x);   // this is not hoisting , because we are not using something that is not initialised , here we are using something (ie x) that is already initialised, unlike const and let , var is not a scope variable . That is why are able to use the x in the console.log
+
+
+
+// variable can be in any one these scope
+// 1. Global Scope      ....default scope for evey variable in strict mode 
+// 2. Module scope
+// 3. Function scope ....... variables declared in function scope inside function add(){..<this is function scope, the area between the curly braces >..}
+
+// In addition , variables like const and let can also be block scope ... that is area between any curly brace {...}
+// variables declared in function  scope are called Local scoped variable and that those are declared outside the function are called global scoped  variable 
+
+
+// {
+//     const a = 5;
+// }
+// console.log(a);  // reference error, why ?? because i told varibales like const and let are block scopes , that means they cannot be used outside the scope . here const a is actually inside a block ({....}) and weare trying to use it outside the {...}, that is why it is error
+
+
+
+// {
+//     var v  = 10 ;
+// }
+// console.log(v);  // print 10, why because unlike const and let , var is not a block scoped variables . It can b ee used outside simple {..} scope
+
+
+
+// console.log(x === undefined);             // returns true , because as soon as we get into this code , var x = 5; actually is in global scope and it gets hoisted above this line as var x; which obvoiusly is "undefined", that is why when do log(x  === undefined ) it will return true and then after in the next line it will assign teh variable x as 5 ; Then the value of x becomes 5 . 
+
+// var x = 5;
+
+// (function() {
+//     console.log(x);                 // here as well as we get in side this function , the var gets hoisted and reaches at the top of the function as var x; and this is definitely is undefined and when log it it asay undeifned and after that we assign teh value ot that variable 
+
+//     var x = 'local variable' ;
+    
+// })();
+
+
+
+// const a = 1;
+// console.log(a);
+
+
+
+// console.log(b);
+// const b = 10;      // throwa referece error , because we are using the variable that is not defined before . the const and let are also hoisted but they are in TDZ ( Temporal dead Zone ) , that's why it say reference error 
+
+
+
+//********* Function hoisting     */
+
+//The function are hoisted perfectly without any problem , that means we can call a function then declare the fucntion or we can first declare a fucntion the call it 
+//Ex:::
+
+// add(1,2);                         // first calling 
+
+// function add(a,b){                    // then declaring
+//     console.log(a + b);
+    
+// }
+
+
+
+// function add(a,b) {                   // first declaring
+//     console.log(a + b );
+    
+// }
+// add(10,12);                              // then calling  
+
+                        // Both is allowed in function case 
+
+// const obj = {
+//     name: " Gaurav",
+//     class: " SDE2"
+// };
+
+// obj.name = " Anand";
+// console.log(obj.name);
+
+// U may ask a question that , how come we are able to change the value of const obj , because we are taught that value of const are constant and cannot be changed................ Well !!!!!!!!!
+// what we did with obj was not re-assigning but mutating 
+// re- assinging value is not allowed in const but  mutating a value is allowed.         ............. Remember
+
+// GOOGLE what is the diff bw "re-assign" and "mutate"
