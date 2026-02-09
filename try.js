@@ -20,12 +20,18 @@
 
 
 // *************************
+
 // ########### Super Complicated, trying playing with the inside values of a and b, and use Strict and also the data type of the inner a and  b ,  data types like const , var, let 
+
+
+
+
+// 'use strict';
 // {
 //     function abc(a,b){
 //         // 'use strict';                     
-//         var  a= 11;
-//         var  b= 12;
+//            a= 11;
+//           b= 12;
 //         return arguments[0] + arguments[1];   // while using "use strict" , we can't change the param variables value , they remain what we have sent from while calling the function , but while we don't use the 'use strict', we can chnage the value of arguements inside the fucntion as done in this example
 
 //         console.log(a+b);
@@ -33,6 +39,7 @@
 // }
 
 // console.log(abc(10,20));
+
 
 
 
@@ -48,6 +55,8 @@
 
 
 // important 
+
+
 // function abc(){
 //     console.log(abc.xyz);
 // }
@@ -76,7 +85,7 @@
 
 
 // VERY IMPORTANT
-// console.log(parseInt('10 + 2'));
+// console.log(parseInt('10 + 2')); // important and can cause careless mistake 
 // console.log(parseInt('7MF'));
 // console.log(parseInt('MF7'));
 
@@ -112,7 +121,7 @@
 //         }
 //         abc2();
 //     }
-                       // in this try putting abc(), while using "use strict" , then it wil work and not give Reference Error 
+//                     //    in this try putting abc(), while using "use strict" , then it wil work and not give Reference Error 
 // } 
 // abc();
 
@@ -1595,3 +1604,333 @@
 // re- assinging value is not allowed in const but  mutating a value is allowed.         ............. Remember
 
 // GOOGLE what is the diff bw "re-assign" and "mutate"
+
+
+
+// console.log(parseInt("101", 2));  // returns 5
+// The code console.log(parseInt("101", 2)) parses the string "101" as a base-2 (binary) number and converts it to its decimal equivalent. The parseInt() function in JavaScript takes two arguments: the string to parse and the radix (the base of the number system). In this case, "101" is parsed as a binary number, where 1 represents 1 and 0 represents 0. Therefore, "101" in binary is equal to (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = 4 + 0 + 1 = 5 in decimal. The console.log() function then outputs this decimal value to the console.
+
+
+
+
+
+// (function() {                     // tricky ............
+//     var a = b = 5;
+// })();
+// console.log(typeof a);  // undefined because the a is inside the functional scope and outside the fucntion it is undefined 
+// console.log(typeof b);  // in IIFE, when variable does not have any variable keyword like var , let , const , then they are considered to be in global scope or window scope 
+
+
+
+
+// let x  = 10;
+// let y  = (x++, x+1, x*2);
+// console.log(y);               // tricky ...........
+
+
+
+// "use strict"          // try removing "use strict" then use this function
+// function test() {
+//     console.log(this);
+    
+// }
+// test.call(null);                      // when we call a fucntion whose this is set to null , then in non strict mode , it defaults to global object 
+
+
+
+
+// add(1,2);
+// function add(a,b) {
+//     return                    // when we write the return keyword dont break the line , try writing the result that has to be retuned in one line only.  If u break line , the complier automatically adds a semi colon and run the code and remember ........< return; >......... returns nothing , so this code will return nothing 
+//     a + b;
+// }
+
+
+// reverse the words of the given String 
+// let string  = " The sky is   Blue";
+// let res = "";
+
+// let inter = [];
+// let arr = string.trim().split(" ");
+// console.log(arr);
+// arr.map(word => inter.unshift(word));
+// console.log("Inter array", inter);
+
+// inter.map(word => {
+//     if(word !== ""){
+//         res = res+word+" ";
+//     }
+// } );
+// console.log(res.trim());
+
+
+
+
+// max water conatining leetcode question 
+
+// let height = [1,8,6,2,5,4,8,3,7];
+// let x  = 0;
+// let y  = height.length - 1 ;
+// let max = 0;
+// while(x<=y){
+
+//     if(height[x] < height[y]){
+//     max = Math.max(max, (y - x)*height[x]);
+//         x = x + 1;
+//     }
+//     if(height[y] < height[x]){
+//         max = Math.max(max, (y - x) * height[y]);
+//         y = y - 1;
+//     }
+//     if(height[x] === height[y]){
+//         max = Math.max(max, (y - x ) * height[x]);
+//         x=x+1;
+//     }
+// }
+// console.log(max);
+
+
+
+// function reverseVowels(s) {
+//     let arr = [...s];
+//     let vowels = "aeiouAEIOU";
+//     let x = 0;
+//     let y = arr.length - 1;
+
+//     while (x < y) {
+//         if (vowels.includes(arr[x]) && vowels.includes(arr[y])) {
+//             [arr[x], arr[y]] = [arr[y], arr[x]]; // Swap vowels
+//             x++;
+//             y--;
+//         } else if (!vowels.includes(arr[x])) {
+//             x++;
+//         } else {
+//             y--;
+//         }
+//     }
+
+//     return arr.join("");
+// }
+
+// console.log(reverseVowels("IcECreAm")); // Output: "AcICreEm"
+
+
+
+
+
+// let chars = ['a', 'a', 'b', 'b','c', 'c', 'c'];
+
+// let count = 1;
+// for(let x  = 0; x  < chars.length ; x++){
+//     if(chars[x] === chars[x + 1]){
+//          count = count + 1;
+//     }
+//     if(chars[x] !== chars[x + 1]){
+//         chars[x] = count;
+//         count = 1;
+//     }
+// }
+
+// console.log(chars.join(""));
+
+// function abc(a,b,c){ // put a=9 and check remove b and  c and then check . Its is new and tricky question
+
+// }
+// console.log(abc.length);
+
+
+
+// plus question leetcode 
+
+// function plusOne(digits){
+//     let carry = 1;
+//     for(let i = digits.length - 1; i >= 0; i--){
+//         let sum = digits[i] + carry;
+//         digits[i] = sum % 10;
+//         carry = Math.floor(sum / 10);
+//         if(carry === 0){
+//             break;
+//         }
+//     }
+//     return digits;
+// }
+
+// plusOne([1,2,3]);
+// console.log(plusOne([9,9,9]));
+// console.log(plusOne([4,3,2,1]));
+
+
+
+
+// event loop in JS
+// console.log('Start');
+// setTimeout(() => console.log('Timeout'), 0);
+// Promise.resolve().then(() => console.log('Promise'));
+// console.log('End');
+
+
+
+// ****** Very Important and Tricky Promise Question *********
+// const promise = new Promise((resolve, reject) => {
+//   console.log(1);
+//   resolve();             //tricky part ,  must undertand if something happens here or it behaves normal.
+//   console.log(2);
+// });
+// promise.then(() => console.log(3)); // U have to undertand something very important here .
+// console.log(4);
+
+
+
+
+// async function test() {
+//   console.log('A');
+//   await Promise.resolve();   // whenever the controller sees "await" it literally waits there and goes back to the caller which is "test()" in this case. 
+
+//   console.log('B');
+// }
+// console.log('C');
+// test();
+// console.log('D');
+
+
+// console.log('1');
+// setTimeout(() => console.log('2'), 0);
+// setTimeout(() => console.log('3'), 0);
+// Promise.resolve().then(() => console.log('4'));
+// Promise.resolve().then(() => console.log('5'));
+// console.log('6');
+
+
+//** Nice Question */         *****
+// let a = 10;
+// setTimeout(() => {
+//   a = 20;
+//   console.log(a);
+// }, 0);
+// console.log(a);
+// a = 30;
+
+
+
+// const promise1 = Promise.resolve('First');
+// const promise2 = Promise.resolve('Second');
+
+// promise1.then(res => console.log(res));
+// console.log('Sync');
+// promise2.then(res => console.log(res));
+
+
+
+
+// async function foo() {    // Remember that async function always returns a Promise
+//   return 'foo';
+// }
+// console.log(foo());
+// foo().then(res => console.log(res));
+// console.log('end');
+
+
+
+// setTimeout(() => console.log('timeout1'), 0);
+// Promise.resolve().then(() => {
+//   console.log('promise1');
+//   setTimeout(() => console.log('timeout2'), 0);
+// });
+// Promise.resolve().then(() => console.log('promise2'));
+// console.log('sync');
+
+
+
+
+// const obj = {
+//   name: 'John',
+//   greet: function() {
+//     console.log(this.name);
+//   }
+// };
+// const greet = obj.greet;
+// obj.greet();
+// greet();     // tricky , check the output in Your VSCode or browser console
+
+
+
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => console.log(i), 0);
+// }
+// for (let j = 0; j < 3; j++) {
+//   setTimeout(() => console.log(j), 0);
+// }
+
+
+
+// console.log(1);
+// new Promise((resolve) => {
+//   console.log(2);
+//   resolve();
+//   console.log(3);
+// }).then(() => console.log(4));
+// console.log(5);
+
+
+
+
+// async function async1() {
+//   console.log('async1 start');
+//   await async2();
+//   console.log('async1 end');
+// }
+// async function async2() {
+//   console.log('async2');
+// }
+// console.log('script start');
+// async1();
+// console.log('script end');
+
+
+
+//**** Nice , worth trying  */
+// const arr = [1, 2, 3];
+// arr.forEach(async (num) => {
+//   await Promise.resolve();
+//   console.log(num);
+// });
+// console.log('Done');
+
+
+//** Slightly Tough */
+// Promise.resolve()
+//   .then(() => console.log('1'))
+//   .then(() => console.log('2'))
+//   .then(() => console.log('3'));
+
+// Promise.resolve()
+//   .then(() => console.log('4'))
+//   .then(() => console.log('5'));
+
+
+// **** Very Important and tricky ****
+// setTimeout(() => console.log('A'), 0);
+// Promise.resolve().then(() => console.log('B'));
+// queueMicrotask(() => console.log('C'));    // Learnt something new here as fresher and also may be as mid-level developer, but it is nothing but just a microtask like Promise.then()
+// console.log('D');
+
+
+
+// const promise = new Promise((resolve) => {
+//   setTimeout(() => resolve('resolved'), 0);
+//   console.log('promise');
+// });
+// console.log('start');
+// promise.then(val => console.log(val));
+// console.log('end');
+
+
+
+async function test() {
+  console.log(1);
+  await console.log(2);
+  console.log(3);
+}
+console.log(4);
+test();
+console.log(5);
