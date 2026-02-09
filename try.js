@@ -1926,11 +1926,194 @@
 
 
 
-async function test() {
-  console.log(1);
-  await console.log(2);
-  console.log(3);
-}
-console.log(4);
-test();
-console.log(5);
+// async function test() {
+//   console.log(1);
+//   await console.log(2);   // await here does not wait for anything as console.log(2) is not a Promise, so it executes immediately
+//   console.log(3);
+// }
+// console.log(4);
+// test();
+// console.log(5);
+
+
+
+
+
+// console.log('Start');
+// const p = new Promise((resolve, reject) => {
+//   reject('Error');
+//   resolve('Success');
+// });
+// p.then(res => console.log(res))
+//  .catch(err => console.log(err));
+// console.log('End');
+
+
+
+// let x = 1;
+// setTimeout(() => x = 2, 1000);
+// setTimeout(() => console.log(x), 0);
+// console.log(x);
+
+
+
+// Promise.resolve('A')
+//   .then(res => {
+//     console.log(res);
+//     return 'B';
+//   })
+//   .then(res => console.log(res));
+
+// console.log('C');
+
+
+
+
+
+//* Slightly Tougher  ****
+
+// async function async1() {
+//   console.log('async1 start');
+//   await async2();
+//   console.log('async1 end');
+// }
+// async function async2() {
+//   console.log('async2 start');
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve();
+//       console.log('async2 promise');
+//     }, 0);
+//   });
+// }
+// console.log('script start');
+// setTimeout(() => console.log('setTimeout'), 0);
+// async1();
+// new Promise((resolve) => {
+//   console.log('promise1');
+//   resolve();
+// }).then(() => console.log('promise2'));
+// console.log('script end');
+
+
+
+// Promise.resolve()
+//   .then(() => {
+//     console.log('promise1');
+//     setTimeout(() => console.log('timeout1'), 0);
+//   })
+//   .then(() => {
+//     console.log('promise2');
+//   });
+
+// setTimeout(() => {
+//   console.log('timeout2');
+//   Promise.resolve().then(() => console.log('promise3'));
+// }, 0);
+
+
+
+
+
+// const promise = Promise.resolve().then(() => {
+//   console.log('promise1');
+//   const timer = setTimeout(() => console.log('timer1'), 0);
+//   return timer;
+// });
+
+// const timer2 = setTimeout(() => {
+//   console.log('timer2');
+//   Promise.resolve().then(() => console.log('promise2'));
+// }, 0);
+
+// console.log('start');
+// console.log('sync');
+
+
+
+
+// async function test() {
+//   console.log(1);
+//   await Promise.resolve(2).then(console.log);   // very tricky , read carefully
+//   console.log(3);
+//   await setTimeout(() => console.log('timeout'), 0); // this await does not wait for anything as setTimeout does not return a Promise
+//   console.log(5);
+// }
+// test();
+// console.log(6);
+
+
+
+
+
+// for (var i = 0; i < 3; i++) {
+//   (function(i) {  //* IIFE to capture the current value of i, worth trying , try without the IIFE */
+//     setTimeout(() => console.log('var:', i), 0);
+//   })(i);  // IIFE to capture the current value of i
+// }
+// for (let j = 0; j < 3; j++) {
+//   setTimeout(() => console.log('let:', j), 100);
+// }
+// console.log('sync');
+
+
+
+
+
+// const p1 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve('p1');
+//     console.log('timeout1');
+//   }, 0);
+//   console.log('promise1');
+// });
+
+// const p2 = new Promise((resolve) => {
+//   console.log('promise2');
+//   resolve(p1);
+// });
+
+// p2.then(res => console.log(res))   // tricky part , read carefully
+//   .then(() => console.log('then'));
+
+// console.log('end');
+
+
+
+
+// async function async1() {
+//   console.log('async1 start');
+//   await new Promise(resolve => {
+//     console.log('promise1');
+//   });
+//   console.log('async1 success');
+//   return 'async1 end';
+// }
+// console.log('script start');
+// async1().then(res => console.log(res));
+// console.log('script end');
+
+
+
+
+
+Promise.resolve()
+  .then(() => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        console.log('timeout1');
+        resolve('resolve1');
+      }, 0);
+    });
+  })
+  .then(res => console.log(res))
+  .then(() => console.log('then1'));
+
+new Promise(resolve => {
+  console.log('promise');
+  
+  resolve();
+})
+  .then(() => console.log('then2'))
+  .then(() => console.log('then3'))
+  .then(() => console.log('then4'));
